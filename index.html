@@ -23,14 +23,14 @@
     </div>
     <script>
       function initBridge() {
-          const bridge = vkBridge.default;
+          //const bridge = vkBridge.default;
           //bridge.subscribe((e) => console.log("vkBridge event", e));
-          bridge.send("VKWebAppInit", {});
+          vkBridge.send("VKWebAppInit", {});
       }
 
       function showAd(adFormat, waterfall){
-        const bridge = vkBridge.default;
-        bridge.send("VKWebAppShowNativeAds", {ad_format:adFormat, use_waterfall:waterfall});
+        //const bridge = vkBridge.default;
+        vkBridge.send("VKWebAppShowNativeAds", {ad_format:adFormat, use_waterfall:waterfall});
         //bridge.subscribe((e) => {
         //if(e.detail.type == 'VKWebAppShowNativeAdsResult' && e.detail.data.result == true) {
         //    ss.SendMessage('VkBridge', 'ShowAdsResult', 'good');
@@ -42,13 +42,13 @@
       }
 
       function storageSet(key, value) {
-        const bridge = vkBridge.default;
-        bridge.send("VKWebAppStorageSet", {"key": key, "value": value});
+        //const bridge = vkBridge.default;
+        vkBridge.send("VKWebAppStorageSet", {"key": key, "value": value});
       }
 
       function storageGet(key){
-        const bridge = vkBridge.default;
-        bridge.send("VKWebAppStorageGet", {"keys": [key]});
+        //const bridge = vkBridge.default;
+        vkBridge.send("VKWebAppStorageGet", {"keys": [key]});
         //bridge.subscribe((e) => {
         //  if(e.detail.type == 'VKWebAppStorageGetResult') {
         //    ss.SendMessage('VkBridge', 'StorageGetResult', e.detail.data.keys[0].value);
