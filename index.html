@@ -24,21 +24,21 @@
     <script>
       function initBridge() {
           const bridge = vkBridge.default;
-          bridge.subscribe((e) => console.log("vkBridge event", e));
+          //bridge.subscribe((e) => console.log("vkBridge event", e));
           bridge.send("VKWebAppInit", {});
       }
 
       function showAd(adFormat, waterfall){
         const bridge = vkBridge.default;
         bridge.send("VKWebAppShowNativeAds", {ad_format:adFormat, use_waterfall:waterfall});
-        bridge.subscribe((e) => {
-        if(e.detail.type == 'VKWebAppShowNativeAdsResult' && e.detail.data.result == true) {
-            ss.SendMessage('VkBridge', 'ShowAdsResult', 'good');
-        }
-        if(e.detail.type == 'VKWebAppShowNativeAdsFailed') {
-           ss.SendMessage('VkBridge', 'ShowAdsResult', 'noGood');
-        }
-        });
+        //bridge.subscribe((e) => {
+        //if(e.detail.type == 'VKWebAppShowNativeAdsResult' && e.detail.data.result == true) {
+        //    ss.SendMessage('VkBridge', 'ShowAdsResult', 'good');
+        //}
+        //if(e.detail.type == 'VKWebAppShowNativeAdsFailed') {
+        //   ss.SendMessage('VkBridge', 'ShowAdsResult', 'noGood');
+        //}
+        //});
       }
 
       function storageSet(key, value) {
@@ -49,14 +49,14 @@
       function storageGet(key){
         const bridge = vkBridge.default;
         bridge.send("VKWebAppStorageGet", {"keys": [key]});
-        bridge.subscribe((e) => {
-          if(e.detail.type == 'VKWebAppStorageGetResult') {
-            ss.SendMessage('VkBridge', 'StorageGetResult', e.detail.data.keys[0].value);
-          }
-          if(e.detail.type == 'VKWebAppStorageGetFailed') {
-            ss.SendMessage('VkBridge', 'StorageGetResult', 'error');
-          }
-        });
+        //bridge.subscribe((e) => {
+        //  if(e.detail.type == 'VKWebAppStorageGetResult') {
+        //    ss.SendMessage('VkBridge', 'StorageGetResult', e.detail.data.keys[0].value);
+        //  }
+        //  if(e.detail.type == 'VKWebAppStorageGetFailed') {
+        //    ss.SendMessage('VkBridge', 'StorageGetResult', 'error');
+        //  }
+        //});
 
       }
     </script>
