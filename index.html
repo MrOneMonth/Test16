@@ -22,10 +22,10 @@
       </div>
     </div>
     <script>
+      vkBridge.send("VKWebAppInit", {});
       function initBridge() {
           //const bridge = vkBridge.default;
           //bridge.subscribe((e) => console.log("vkBridge event", e));
-          vkBridge.send("VKWebAppInit", {});
       }
 
       function showAd(adFormat, waterfall){
